@@ -1,6 +1,6 @@
 package leagueliveapi
 
-type APIError struct {
+type apiError struct {
 	ErrorCode             string      `json:"errorCode"`
 	HTTPStatus            int         `json:"httpStatus"`
 	ImplementationDetails interface{} `json:"implementationDetails"`

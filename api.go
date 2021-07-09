@@ -61,9 +61,9 @@ func (a *API) Get(endpoint string, params url.Values) (*http.Response, error) {
 	// If the status code is not 200, we decode as error JSON to get error message
 	if resp.StatusCode != 200 {
 		defer resp.Body.Close()
-		apiError := APIError{}
-		json.NewDecoder(resp.Body).Decode(&apiError)
-		return resp, errors.New(apiError.Message)
+		errStruct := apiError{}
+		json.NewDecoder(resp.Body).Decode(&errStruct)
+		return resp, errors.New(errStruct.Message)
 	}
 	return resp, err
 }
