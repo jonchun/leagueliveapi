@@ -1,4 +1,4 @@
-package main
+package leagueliveapi
 
 type APIError struct {
 	ErrorCode             string      `json:"errorCode"`

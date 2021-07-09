@@ -1,4 +1,4 @@
-package main
+package leagueliveapi
 
 import (
 	"crypto/tls"

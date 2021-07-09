@@ -1,4 +1,4 @@
-package main
+package leagueliveapi
 
 var riotGamesPem = `-----BEGIN CERTIFICATE-----
 MIIEIDCCAwgCCQDJC+QAdVx4UDANBgkqhkiG9w0BAQUFADCB0TELMAkGA1UEBhMC
