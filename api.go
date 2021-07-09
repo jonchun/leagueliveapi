@@ -17,7 +17,8 @@ type API struct {
 	httpClient *http.Client
 }
 
-func NewAPI() *API {
+// New returns an API struct with the default settings.
+func New() *API {
 	// Create a default HTTP Client
 	caCert := []byte(riotGamesPem)
 	caCertPool := x509.NewCertPool()
@@ -43,9 +44,10 @@ func (a *API) HTTPClient(c *http.Client) *API {
 	return a
 }
 
-func (a *API) Get(e string, params url.Values) (*http.Response, error) {
+// Get makes a GET request using API.httpClient to the specified endpoint. Optionally, pass URL parameters with params.
+func (a *API) Get(endpoint string, params url.Values) (*http.Response, error) {
 	requestURL, err := url.Parse(LIVE_CLIENT_DATA_URL)
-	requestURL.Path = path.Join(requestURL.Path, e)
+	requestURL.Path = path.Join(requestURL.Path, endpoint)
 	requestURL.RawQuery = params.Encode()
 	if err != nil {
 		return nil, err
