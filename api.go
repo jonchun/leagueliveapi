@@ -52,6 +52,9 @@ func (a *API) Get(e string, params url.Values) (*http.Response, error) {
 	}
 
 	resp, err := a.httpClient.Get(requestURL.String())
+	if err != nil {
+		return nil, err
+	}
 
 	// If the status code is not 200, we decode as error JSON to get error message
 	if resp.StatusCode != 200 {
